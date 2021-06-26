@@ -6,12 +6,13 @@
   --red: #f74550;
   --purple: #8945f9;
   --gray: #dddddd;
+  --green: #00ccc9;
 }
 
 // 2. size, padding
 :root {
-  --text-lg: 80px;
-  --text-md: 32px;
+  --text-lg: 60px;
+  --text-md: 35px;
   --text-sm: 16px;
   --text-xs: 15px;
   --line-height-lg: 1.6;
@@ -86,6 +87,23 @@ body {
   padding: 100px 0;
 }
 
+.section-heading {
+  color: #fff;
+  font-weight: 400;
+  font-size: var(--text-md);
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 55%;
+    background: linear-gradient(to right, transparent 15%, #0f0d13 50%);
+    z-index: 9;
+  }
+}
+
 .btn {
   padding: 15px;
   display: inline-block;
@@ -108,7 +126,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--p-5) 0;
+  padding: var(--p-4) 0;
   &-logo {
     font-weight: 600;
     color: #fff;
@@ -120,7 +138,10 @@ body {
     align-items: center;
   }
   &-link {
-    padding: 0 45px;
+    padding: 0 25px;
+  }
+  .btn {
+    margin-left: 25px;
   }
 }
 
@@ -137,9 +158,24 @@ body {
       line-height: 1.3;
       margin-top: 0;
       margin-bottom: 35px;
+      position: relative;
+      z-index: 8;
+      &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 55%;
+        background: linear-gradient(to right, transparent 0%, #0f0d13 70%);
+        z-index: 9;
+      }
+      span {
+        display: block;
+      }
     }
     p {
-      color: var(--gray);
+      color: #78757b;
       font-size: var(--text-sm);
       margin-bottom: var(--p-4);
     }
@@ -150,14 +186,14 @@ body {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      border: 1px solid #413e44;
+      border: 1px solid #413f45;
       border-radius: 30px;
       overflow: hidden;
       .item {
         padding: 45px;
-        color: #413e44;
-        border-bottom: 1px solid #413e44;
-        border-right: 1px solid #413e44;
+        color: #413f45;
+        border-bottom: 1px solid #413f45;
+        border-right: 1px solid #413f45;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -177,12 +213,20 @@ body {
   }
   &-right {
     margin-left: 120px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     .card {
       height: 240px;
       width: 100%;
       background: linear-gradient(to right, #cd9eff, #ff2def);
+      background-image: url("./assets/img/Layer 2.png");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100%;
       border-radius: 30px;
       padding: var(--p-4);
+      margin-bottom: var(--p-3);
       span {
         color: #fff;
         display: block;
@@ -212,5 +256,78 @@ body {
         font-size: var(--text-md);
       }
     }
+    .widget {
+      background: linear-gradient(to top, #16151c, transparent);
+      width: 100%;
+      padding: 35px;
+      border-radius: 30px;
+      border: 1px solid #413f45;
+      display: flex;
+      flex-direction: column;
+      .widget-top {
+        .widget-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: #fffcff;
+          font-size: 15px;
+          margin-bottom: 35px;
+          .highlight {
+            color: var(--green);
+          }
+          &:nth-child(1) {
+            opacity: 0.5;
+          }
+          &:nth-child(2) {
+            .name {
+              font-size: 16px;
+              font-weight: bold;
+            }
+          }
+        }
+        border-bottom: 1px solid #413f45;
+        margin-bottom: var(--p-3);
+      }
+    }
   }
+}
+
+// Market section
+.market {
+}
+
+.divTable {
+  display: table;
+  width: 100%;
+  border-radius: 30px;
+  border: 1px solid #413f45;
+  color: #8f8c94;
+  padding: 25px;
+  background: linear-gradient(to bottom, #201c27, transparent);
+  margin-top: var(--p-5);
+}
+.divTableRow {
+  display: table-row;
+}
+.divTableHeading {
+  display: table-header-group;
+}
+.divTableCell,
+.divTableHead {
+  display: table-cell;
+  padding: 10px 30px;
+  text-align: center;
+}
+.divTableHeading {
+  background-color: #eee;
+  display: table-header-group;
+  font-weight: bold;
+}
+.divTableFoot {
+  background-color: #eee;
+  display: table-footer-group;
+  font-weight: bold;
+}
+.divTableBody {
+  display: table-row-group;
 }
